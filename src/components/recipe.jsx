@@ -4,7 +4,7 @@ import Pagination from "./common/pagination";
 import { toast } from "react-toastify";
 import { paginate } from "../utils/paginate";
 import Filters from "./common/filters";
-import MoviesTable from "./moviesTable";
+import RecipeList from "./recipeList";
 import { Link } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { user } from "../services/authService";
@@ -13,7 +13,7 @@ import { deleteMovie, getMovies } from "../services/movieService";
 import { getGenres } from "../services/genreService";
 import SearchBox from "./searchBox";
 
-class Movies extends Component {
+class Recipe extends Component {
   state = {
     movies: [],
     genres: [],
@@ -126,19 +126,20 @@ class Movies extends Component {
             )}
 
             <p className="mx-auto">
-              Showing {totalCount} movies in the database
+              {/* Showing {totalCount} recipes  */}
+              Showing list of recipe
             </p>
             <SearchBox
               value={searchQuery}
               onChange={this.handleSearch}
             ></SearchBox>
-            <MoviesTable
+            <RecipeList
               onLike={this.handleLike}
               onDelete={this.handleDelete}
               movies={movies}
               onSort={this.handleSort}
               sortColumn={sortColumn}
-            ></MoviesTable>
+            ></RecipeList>
 
             <Pagination
               itemsCount={totalCount}
@@ -153,4 +154,4 @@ class Movies extends Component {
   }
 }
 
-export default Movies;
+export default Recipe;

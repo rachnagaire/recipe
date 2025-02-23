@@ -4,7 +4,7 @@ import { Route, Redirect, Switch } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import Header from "./components/common/header";
 import MoviesForm from "./components/moviesForm";
-import Movies from "./components/movies";
+import Recipe from "./components/recipe";
 import Customers from "./components/customers";
 import Rentals from "./components/rentals";
 import NotFound from "./components/notFound";
@@ -37,23 +37,15 @@ class App extends Component {
               path="/movies/:id"
               component={MoviesForm}
             ></ProtectedRoute>
-            {/* <ProtectedRoute path="/movies" component={Movies}></ProtectedRoute> */}
-            {/* <Route
-              path="/movies/:id"
-              render={(props) => {
-                if (!user) return <Redirect to="/login"></Redirect>;
-                return <MoviesForm {...props}></MoviesForm>;
-              }}
-            ></Route>
-            */}
+            
             <Route
-              path="/movies"
-              render={(props) => <Movies {...props} user={user}></Movies>}
+              path="/recipe"
+              render={(props) => <Recipe {...props} user={user}></Recipe>}
             ></Route>
             <Route path="/customers" component={Customers}></Route>
             <Route path="/rentals" component={Rentals}></Route>
             <Route path="/not-found" component={NotFound}></Route>
-            <Redirect from="/" exact to="/movies"></Redirect>
+            <Redirect from="/" exact to="/recipe"></Redirect>
             <Redirect to="/not-found"></Redirect>
           </Switch>
         </main>
